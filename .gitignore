@@ -1,0 +1,6 @@
+/target/
+     .idea/
+       SeleniumMaven_First.iml
+        mvn
+        target/
+

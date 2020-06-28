@@ -1,0 +1,37 @@
+package stepDefs;
+
+import Managers.DriverMgr;
+import PageObjects.ControlGroupPage;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.WebDriver;
+
+
+public class ControlGroupDefs {
+    ControlGroupPage controlGroupPage=new ControlGroupPage(DriverMgr.getDriver());
+
+
+    @Given("I validate header")
+    public void i_validate_header() {
+        Assertions.assertEquals(controlGroupPage.headerText(), "Controlgroup");
+        System.out.println("completed I validate header");
+    }
+
+    @Given("^I click (\\w+) arrow (\\d+) times$")
+    public void i_click_arrow(String btn, int times) {
+        for (int i = 0; i < times; i++) {
+            if (btn.equals("up")) {
+                controlGroupPage.clickUp();
+            } else {
+                controlGroupPage.clickdown();
+            }
+        }
+    }
+
+    @Given("^I validate that number of cars is (\\d+)$")
+    public void i_validate_cars(int numCars) {
+        Assertions.assertEquals(String.valueOf(numCars), controlGroupPage.getNumCars());
+        System.out.println("completed I validate number of cars as "+numCars);
+    }
+}

@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Control page suite">
+<test name="Control test" >
+    <classes>
+        <class name="TNG_Test.ControlGroup_Test"></class>
+    </classes>
+</test>
+</suite>
